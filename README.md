@@ -173,7 +173,7 @@ Distributed under the GNU General Public License v3.0. See `LICENSE` for more in
 
 Aitor Astorga Saez de Vicuña - a.astorga.sdv@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/AitorAstorga/RandomNumberGenerator](https://github.com/AitorAstorga/RandomNumberGenerator)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
