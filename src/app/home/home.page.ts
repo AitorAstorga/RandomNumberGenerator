@@ -22,6 +22,7 @@ export class HomePage implements OnInit {
 
     this.randomNumber$ = this.interval$.pipe(
       switchMap(interv => interv ? interval(interv).pipe(
+        startWith(this.generateRandomNumber(this.min, this.max)), // Emit a number immediately
         map(() => {
           const num = this.generateRandomNumber(this.min, this.max);
           this.lastNumber = num; // Update the last number
@@ -31,18 +32,13 @@ export class HomePage implements OnInit {
           this.lastNumbers.push(num);
           return num;
         })
-      ) : EMPTY), // Use EMPTY instead of []
-      startWith(0) // Emit 0 initially
+      ) : EMPTY), // Use EMPTY if there is no interval set
     );
+    
   }
 
   generateRandomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  updateRange(min: number, max: number): void {
-    this.min = +min; // Use unary plus to convert string to number
-    this.max = +max; // Use unary plus to convert string to number
   }
 
   updateInterval(interval: number): void {

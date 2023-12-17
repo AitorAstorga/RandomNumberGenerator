@@ -1,16 +1,26 @@
-<div class="loading-circle">
-  <div class="loading-number">{{ lastNumber }}</div>
-  <svg viewBox="0 0 36 36" class="circular-chart">
-    <path class="circle-bg"
-      d="M18 2.0845
-        a 15.9155 15.9155 0 0 1 0 31.831
-        a 15.9155 15.9155 0 0 1 0 -31.831"
-    />
-    <path class="circle"
-      [attr.stroke-dasharray]="10 + ', ' + 50"
-      d="M18 2.0845
-        a 15.9155 15.9155 0 0 1 0 31.831
-        a 15.9155 15.9155 0 0 1 0 -31.831"
-    />
-  </svg>  
-</div>
+<ion-grid [fixed]="true">
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+      <div class="loading-circle">
+        <div class="loading-number">{{ lastNumber }}</div>
+        <svg viewBox="0 0 36 36" class="circular-chart">
+          <path class="circle-bg"
+            d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <path class="circle"
+            [attr.stroke-dasharray]="dashLength + ' ' + circumference"
+            [attr.stroke-dashoffset]="circumference / 2 - dashLength"
+            d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+        </svg>
+      </div>
+      
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+</ion-grid>

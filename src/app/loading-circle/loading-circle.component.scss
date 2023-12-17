@@ -1,35 +1,34 @@
 .loading-circle {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    display: inline-block;
-  
-    .loading-number {
-      position: absolute;
-      line-height: 100px;
-      width: 100%;
-      text-align: center;
-      font-size: 2em;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+
+  .loading-number {
+    position: absolute;
+    line-height: 100px;
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+  }
+
+  .circular-chart {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+
+    .circle-bg {
+      fill: none;
+      stroke: white;
+      stroke-width: 3.8;
     }
-  
-    .circular-chart {
-      transform: rotate(-90deg);
-      width: 100%;
-      height: 100%;
-  
-      .circle-bg {
-        fill: none;
-        stroke: #eee;
-        stroke-width: 3.8;
-      }
-  
-      .circle {
-        fill: none;
-        stroke-width: 2.8;
-        stroke-linecap: round;
-        stroke: #af4ca2; /* Adjust the color to your preference */
-        transition: stroke-dasharray 0.3s; /* Smoother transition */
-      }
+
+    .circle {
+      fill: none;
+      stroke-width: 2.8;
+      stroke-linecap: round;
+      stroke: purple; /* Adjust the color to your preference */
+      transition: stroke-dasharray 0.3s; /* Smoother transition */
     }
   }
-  
+}

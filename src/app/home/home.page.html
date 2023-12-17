@@ -11,23 +11,21 @@
     <h2>Random Number:</h2>
     <app-loading-circle *ngIf="randomNumber$ | async as randomNumber" [lastNumber]="lastNumber" [interval]="interv"></app-loading-circle>
     
-
     <ion-item>
       <ion-input label="Min:" type="number" [(ngModel)]="min" aria-label="min"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input label="Max:" type="number" [(ngModel)]="max" aria-label="max"></ion-input>
     </ion-item>
-    <ion-button expand="block" (click)="updateRange(min, max)">Set Range</ion-button>
 
     <ion-item>
-      <ion-input label="Interval (ms):" type="number" [(ngModel)]="interv" aria-label="number"></ion-input>
+      <ion-input label="Interval (ms):" (ionInput)="updateInterval(interv)" type="number" [(ngModel)]="interv" aria-label="number"></ion-input>
     </ion-item>
-    <ion-button expand="block" (click)="updateInterval(interv)">Set Interval</ion-button>
 
-    <ion-button expand="block" (click)="togglePausePlay()">
+    <ion-button expand="block" (click)="togglePausePlay()" size="large">
+      <ion-icon [name]="isPaused ? 'play-circle-outline' : 'pause-circle-outline'" size="medium"></ion-icon>
       {{ isPaused ? 'Play' : 'Pause' }}
-    </ion-button>
+    </ion-button>    
 
     <h2>Last 5 Numbers:</h2>
     <ion-list>
