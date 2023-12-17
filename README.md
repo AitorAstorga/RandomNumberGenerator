@@ -170,6 +170,20 @@ Next, open Android studio:
 npx cap open android
 ```
 
+#### Error Unable to launch Android Studio
+This error looks like this:
+```sh
+npx cap open android
+[error] Unable to launch Android Studio. Is it installed?
+        Attempted to open Android Studio at: /usr/local/android-studio/bin/studio.sh
+        You can configure this with the CAPACITOR_ANDROID_STUDIO_PATH environment variable.
+```
+
+If you get it in Linux and you installed Android Studio previously you can fix it by doing:
+```sh
+export CAPACITOR_ANDROID_STUDIO_PATH="/opt/android-studio/bin/studio.sh"
+```
+
 ### Running with Android Studio
 In Android Studio, first select the device or emulator and then click the run or debug button to run your app. Unless you're debugging Java or Kotlin code, the run button is preferred.
 
