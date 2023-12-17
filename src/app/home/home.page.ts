@@ -17,6 +17,7 @@ export class HomePage implements OnInit {
   interval$ = new BehaviorSubject<number>(this.interv);
   isPaused = false;
 
+
   ngOnInit(): void {
     console.log('HomePage initialized');
 
@@ -34,7 +35,6 @@ export class HomePage implements OnInit {
         })
       ) : EMPTY), // Use EMPTY if there is no interval set
     );
-    
   }
 
   generateRandomNumber(min: number, max: number): number {

@@ -8,6 +8,7 @@ import { Component, Input, OnDestroy, OnInit, OnChanges, SimpleChanges } from '@
 export class LoadingCircleComponent implements OnInit, OnDestroy, OnChanges {
   @Input() interval: number = 1000;
   @Input() lastNumber: number = 0;
+  @Input() isPaused: boolean = false;
   loadingProgress: number = 0;
   circumference: number = 2 * Math.PI * 15.9155;
   dashLength: number = 0;
@@ -18,28 +19,26 @@ export class LoadingCircleComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    // If the interval input has changed, we need to restart the loading
     if (changes['interval']) {
       this.startInterval();
+      this.resetLoading();
     }
   }
 
   ngOnDestroy() {
-    clearInterval(this.intervalID);
+    this.clearInterval();
   }
 
   startInterval() {
-    // Clear any existing intervals to prevent duplicates
-    if (this.intervalID) {
-      clearInterval(this.intervalID);
-    }
+    this.clearInterval();
     
     this.intervalID = setInterval(() => {
-      this.loadingProgress++;
-      console.log('Loading progress: ' + this.loadingProgress + 'dashLength: ' + this.dashLength + 'circumference: ' + this.circumference + 'interval: ' + this.interval + 'intervalID: ' + this.intervalID + 'lastNumber: ' + this.lastNumber + 'loadingProgress: ' + this.loadingProgress + '');
-      this.dashLength = this.loadingProgress * this.circumference / 100;
-      if (this.loadingProgress >= 100) {
-        this.loadingProgress = 0;
+      if (!this.isPaused) {
+        this.loadingProgress++;
+        this.dashLength = this.loadingProgress * this.circumference / 100;
+        if (this.loadingProgress >= 100) {
+          this.loadingProgress = 0;
+        }
       }
     }, this.calculateUpdateInterval());
   }
@@ -49,8 +48,14 @@ export class LoadingCircleComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   resetLoading() {
-    clearInterval(this.intervalID);
     this.loadingProgress = 0;
     this.startInterval();
+  }
+
+  private clearInterval() {
+    if (this.intervalID) {
+      clearInterval(this.intervalID);
+      this.intervalID = null;
+    }
   }
 }

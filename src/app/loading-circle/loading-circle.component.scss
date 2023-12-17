@@ -1,15 +1,18 @@
+$spinnerSize: 150;
+$circumference: 3.14 * calc($spinnerSize / 2);
+
 .loading-circle {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: $spinnerSize + px;
+  height: $spinnerSize + px;
   display: inline-block;
 
   .loading-number {
     position: absolute;
-    line-height: 100px;
+    line-height: $spinnerSize + px;
     width: 100%;
     text-align: center;
-    font-size: 2em;
+    font-size: 3em;
   }
 
   .circular-chart {
@@ -27,8 +30,8 @@
       fill: none;
       stroke-width: 2.8;
       stroke-linecap: round;
-      stroke: purple; /* Adjust the color to your preference */
-      transition: stroke-dasharray 0.3s; /* Smoother transition */
+      stroke: purple;
+      transition: stroke-dasharray 0.3s linear;
     }
   }
 }

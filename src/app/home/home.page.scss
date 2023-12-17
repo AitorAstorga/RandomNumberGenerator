@@ -30,3 +30,12 @@ ion-button {
   --background: purple;
   --color: white;
 }
+
+ion-input.custom {
+  --border-color: purple;
+  --color: purple;
+  --highlight-color-focused: purple;
+  --highlight-color-invalid: purple;
+  --highlight-color-valid: purple;
+  --placeholder-color: purple;
+}

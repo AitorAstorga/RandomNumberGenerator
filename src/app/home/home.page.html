@@ -9,7 +9,7 @@
 <ion-content>
   <div class="ion-padding">
     <h2>Random Number:</h2>
-    <app-loading-circle *ngIf="randomNumber$ | async as randomNumber" [lastNumber]="lastNumber" [interval]="interv"></app-loading-circle>
+    <app-loading-circle *ngIf="randomNumber$ | async as randomNumber" [lastNumber]="lastNumber" [interval]="interv" [isPaused]="isPaused"></app-loading-circle>
     
     <ion-item>
       <ion-input label="Min:" type="number" [(ngModel)]="min" aria-label="min"></ion-input>
