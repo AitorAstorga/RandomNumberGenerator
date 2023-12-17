@@ -84,6 +84,8 @@ This project is built with the following technologies:
 * ![Ionic](https://img.shields.io/badge/Ionic-%233880FF.svg?style=for-the-badge&logo=Ionic&logoColor=white)
 * ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
 * ![Capacitor](https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=Capacitor&logoColor=white)
+* ![Android Studio](https://img.shields.io/badge/Android_Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white)
+* ![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -95,7 +97,6 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-
 Update npm (or install it otherwise)
 ```sh
 sudo npm install npm@latest -g
@@ -105,6 +106,8 @@ Install the Ionic Framework
 ```sh
 sudo npm i -g @ionic/cli
 ```
+
+You will need Android Studio if you want to build the apk.
 
 ### Installation
 
