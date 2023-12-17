@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Random Number Generator</string>
+    <string name="title_activity_main">Random Number Generator</string>
+    <string name="package_name">aichan.ovh.random_number_generator</string>
+    <string name="custom_url_scheme">aichan.ovh.random_number_generator</string>
+</resources>
