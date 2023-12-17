@@ -47,6 +47,9 @@
       </ul>
     </li>
     <li>
+      <a href="#serve">Serve</a>
+    </li>
+    <li>
       <a href="#build">Build</a>
       <ul>
         <li><a href="#generating-a-release-build">Generating a release build</a></li>
@@ -95,12 +98,12 @@ To get a local copy up and running follow these simple example steps.
 
 Update npm (or install it otherwise)
 ```sh
-npm install npm@latest -g
+sudo npm install npm@latest -g
 ```
 
 Install the Ionic Framework
 ```sh
-npm i -g @ionic/cli
+sudo npm i -g @ionic/cli
 ```
 
 ### Installation
@@ -117,6 +120,27 @@ npm i -g @ionic/cli
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
+## Serve
+
+You can create a live server in a web browser with Ionic. Use the command:
+```sh
+ionic serve
+```
+
+You will be prompted to install `@angular/cli`. Install it.
+```sh
+> ng run app:serve --host=localhost --port=8100
+
+[INFO] Looks like @angular/cli isn't installed in this project.
+       
+       This package is required for this command to work properly. The package provides a CLI utility, but the ng binary
+       was not found in your PATH.
+
+? Install @angular/cli? Yes
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Build
 
