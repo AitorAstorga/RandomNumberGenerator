@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject, EMPTY, Observable, interval } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
+import { IonSelect } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -16,10 +18,30 @@ export class HomePage implements OnInit {
   interv = 1000; // default 1 second
   interval$ = new BehaviorSubject<number>(this.interv);
   isPaused = false;
+  startText = '';
+  stopText = '';
 
+  @ViewChild('languageSelect') languageSelect!: IonSelect 
+
+  appLanguageList = [
+    { text: 'English', code: 'en' },
+    { text: 'Español', code: 'es' },
+    { text: 'Euskara', code: 'eu' }
+  ];
+
+  selectedLanguage = 'en';
+
+  constructor(private translateService: TranslateService) {}
 
   ngOnInit(): void {
     console.log('HomePage initialized');
+
+    this.translateService.use(this.selectedLanguage).subscribe(() => {
+      this.translateService.get(['home.start', 'home.stop']).subscribe((texts) => {
+        this.startText = texts['home.start'];
+        this.stopText = texts['home.stop'];
+      });
+    });
 
     this.randomNumber$ = this.interval$.pipe(
       switchMap(interv => interv ? interval(interv).pipe(
@@ -53,5 +75,22 @@ export class HomePage implements OnInit {
     } else {
       this.interval$.next(this.interv); // Resume emitting numbers
     }
+  }
+
+  changeLanguage() {
+    this.translateService.use(this.selectedLanguage).subscribe(() => {
+      this.translateService.get(['home.start', 'home.stop']).subscribe((texts) => {
+        this.startText = texts['home.start'];
+        this.stopText = texts['home.stop'];
+      });
+    });
+  }
+
+  compareWithLanguage(o1: string, o2: string): boolean {
+    return o1 === o2;
+  }
+
+  openLanguageSelect() {
+    this.languageSelect.open();
   }
 }

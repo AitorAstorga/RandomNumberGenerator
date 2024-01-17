@@ -39,3 +39,17 @@ ion-input.custom {
   --highlight-color-valid: purple;
   --placeholder-color: purple;
 }
+
+ion-select {
+  opacity: 0; /* Hide the select text */
+  max-width: 0; /* Ensure the element doesn't occupy space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-toolbar img {
+  height: 40px; /* Adjust the height as needed */
+  width: auto; /* This will maintain the aspect ratio */
+  padding-left: 0.3em;
+}
