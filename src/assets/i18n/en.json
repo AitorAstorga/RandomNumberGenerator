@@ -1,0 +1,13 @@
+{
+    "home": {
+        "title": "Random Number Generator",
+        "random_number": "Random Number",
+        "min": "Min",
+        "max": "Max",
+        "interval": "Interval",
+        "start": "Start",
+        "stop": "Stop",
+        "last": "Last",
+        "numbers": "Numbers"
+    }
+}

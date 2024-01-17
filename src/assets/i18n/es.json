@@ -1,0 +1,14 @@
+{
+    "home": {
+        "title": "Generador de Números Aleatorios",
+        "random_number": "Número Aleatorio",
+        "min": "Min",
+        "max": "Max",
+        "interval": "Intervalo",
+        "start": "Iniciar",
+        "stop": "Detener",
+        "last": "Últimos",
+        "numbers": "Números"
+    }
+    
+}

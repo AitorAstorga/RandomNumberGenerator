@@ -1,33 +1,44 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Random Number Generator
-    </ion-title>
+    <ion-buttons slot="start">
+      <img src="assets/icon/favicon.png" alt="logo">
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="openLanguageSelect()">
+        <ion-icon name="language-outline"></ion-icon>
+      </ion-button>
+      <ion-select #languageSelect [compareWith]="compareWithLanguage" [(ngModel)]="selectedLanguage" interface="popover" (ionChange)="changeLanguage()">
+        <ion-select-option *ngFor="let language of appLanguageList" [value]="language.code">
+          {{ language.text }}
+        </ion-select-option>
+      </ion-select>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
-    <h2>Random Number:</h2>
-    <app-loading-circle *ngIf="randomNumber$ | async as randomNumber" [lastNumber]="lastNumber" [interval]="interv" [isPaused]="isPaused"></app-loading-circle>
-    
+    <h2>{{ 'home.random_number' | translate }}:</h2>
+    <app-loading-circle *ngIf="randomNumber$ | async as randomNumber" [lastNumber]="lastNumber" [interval]="interv"
+      [isPaused]="isPaused"></app-loading-circle>
+
     <ion-item>
-      <ion-input label="Min:" type="number" [(ngModel)]="min" aria-label="min"></ion-input>
+      <ion-input label="{{'home.min' | translate}}:" type="number" [(ngModel)]="min" aria-label="min"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input label="Max:" type="number" [(ngModel)]="max" aria-label="max"></ion-input>
+      <ion-input label="{{'home.max' | translate}}:" type="number" [(ngModel)]="max" aria-label="max"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input label="Interval (ms):" (ionInput)="updateInterval(interv)" type="number" [(ngModel)]="interv" aria-label="number"></ion-input>
+      <ion-input label="{{'home.interval' | translate}} (ms):" (ionInput)="updateInterval(interv)" type="number" [(ngModel)]="interv" aria-label="number"></ion-input>
     </ion-item>
 
     <ion-button expand="block" (click)="togglePausePlay()" size="large">
-      <ion-icon [name]="isPaused ? 'play-circle-outline' : 'pause-circle-outline'" size="medium"></ion-icon>
-      {{ isPaused ? 'Play' : 'Pause' }}
-    </ion-button>    
+      <ion-icon [name]="isPaused ? 'play-circle-outline' : 'stop-circle-outline'" size="medium"></ion-icon>
+      {{ isPaused ? startText : stopText }}
+    </ion-button>
 
-    <h2>Last 5 Numbers:</h2>
+    <h2>{{'home.last' | translate}} 5 {{'home.numbers' | translate}}:</h2>
     <ion-list>
       <ion-item *ngFor="let number of lastNumbers">{{ number }}</ion-item>
     </ion-list>
