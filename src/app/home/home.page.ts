@@ -50,9 +50,9 @@ export class HomePage implements OnInit {
           const num = this.generateRandomNumber(this.min, this.max);
           this.lastNumber = num; // Update the last number
           if (this.lastNumbers.length >= 5) {
-            this.lastNumbers.shift();
+            this.lastNumbers.pop();
           }
-          this.lastNumbers.push(num);
+          this.lastNumbers.unshift(num);
           return num;
         })
       ) : EMPTY), // Use EMPTY if there is no interval set
