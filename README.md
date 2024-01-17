@@ -155,20 +155,26 @@ Follow the official Ionic documentation:
 
 ### Generating a release build
 Build the web app:
+
 ```
 ionic build
 ```
 
 To generate a release build for Android run the following cli command:
+
 ```
 npx cap copy && npx cap sync
 ```
+
 This will copy all web assets and sync any plugin changes.
 
 Next, open Android studio:
 ```
 npx cap open android
 ```
+
+Then, generate an APK in Android Studio:
+- https://developer.android.com/build/build-for-release
 
 #### Error Unable to launch Android Studio
 This error looks like this:
