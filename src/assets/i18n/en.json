@@ -8,6 +8,7 @@
         "start": "Start",
         "stop": "Stop",
         "last": "Last",
-        "numbers": "Numbers"
+        "numbers": "Numbers",
+        "copied": "Number copied to clipboard"
     }
 }
