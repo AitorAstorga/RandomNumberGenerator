@@ -20,7 +20,7 @@
   <div class="ion-padding">
     <h2>{{ 'home.random_number' | translate }}:</h2>
     <app-loading-circle *ngIf="randomNumber$ | async as randomNumber" [lastNumber]="lastNumber" [interval]="interv"
-      [isPaused]="isPaused"></app-loading-circle>
+      [isPaused]="isPaused" (click)="onNumberClicked(randomNumber)"></app-loading-circle>
 
     <ion-item>
       <ion-input label="{{'home.min' | translate}}:" type="number" [(ngModel)]="min" aria-label="min"></ion-input>
@@ -40,7 +40,7 @@
 
     <h2>{{'home.last' | translate}} 5 {{'home.numbers' | translate}}:</h2>
     <ion-list>
-      <ion-item *ngFor="let number of lastNumbers">{{ number }}</ion-item>
+      <ion-item *ngFor="let number of lastNumbers" (click)="onNumberClicked(number)">{{ number }}</ion-item>
     </ion-list>
   </div>
 </ion-content>

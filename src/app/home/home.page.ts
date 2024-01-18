@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BehaviorSubject, EMPTY, Observable, interval } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, firstValueFrom, interval } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { IonSelect } from '@ionic/angular';
+import { IonSelect, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -31,7 +31,10 @@ export class HomePage implements OnInit {
 
   selectedLanguage = 'en';
 
-  constructor(private translateService: TranslateService) {}
+  constructor(
+    private translateService: TranslateService, 
+    private toastController: ToastController
+  ) {}
 
   ngOnInit(): void {
     console.log('HomePage initialized');
@@ -76,6 +79,26 @@ export class HomePage implements OnInit {
       this.interval$.next(this.interv); // Resume emitting numbers
     }
   }
+
+  onNumberClicked(number: any) {
+    this.copyToClipboard(number);
+  }
+
+  async copyToClipboard(text: string) {
+    await navigator.clipboard.writeText(text);
+    this.showToast('home.copied');
+  }
+
+  async showToast(message: string) {
+    const text = await firstValueFrom(this.translateService.get(message));
+    const toast = await this.toastController.create({
+      message: text,
+      duration: 1200,
+      position: 'bottom'
+    });
+    toast.present();
+  }
+
 
   changeLanguage() {
     this.translateService.use(this.selectedLanguage).subscribe(() => {
